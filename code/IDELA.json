@@ -105,7 +105,7 @@
       "type": "send-message",
       "transitions": [
         {
-          "next": "q1",
+          "next": "IDELA",
           "event": "sent"
         },
         {
@@ -114,14 +114,14 @@
       ],
       "properties": {
         "offset": {
-          "x": 160,
-          "y": 1210
+          "x": 190,
+          "y": 1080
         },
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
         "to": "{{contact.channel.address}}",
-        "body": "Thank you for agreeing to take *IDELA*! \n*ITEM 1 -  SELF-AWARENESS (SOCIAL-EMOTIONAL)*\nAsk the child the following question one at the time. \nIf you want to skip any of the questions, respond with the word *\"skip\"* at any time. \nIf you want to stop the survey, respond with the word *\"stop\"* at any time."
+        "body": "Thank you for agreeing to take IDELA! \n\n*Conventions Used in This Survey*\n📖   This element indicates an instruction.\nTo skip any of the questions, respond with the word *\"skip\"*. \nTo stop the survey, respond with the word *\"stop\"*."
       }
     },
     {
@@ -399,7 +399,7 @@
       "properties": {
         "input": "{{widgets.q1.inbound.Body}}",
         "offset": {
-          "x": 60,
+          "x": 40,
           "y": 1660
         }
       }
@@ -1094,7 +1094,7 @@
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
-        "body": "*ITEM 9. FRIENDS (SOCIAL-EMOTIONAL)*\n*Please tell me the names of your firends who you like to play with*\n\n_After the child has paused for 5 seconds, prompt ONCE by saying,_\n\n*Are there any other friends who you like to play with?*\n\n1. Continue.\n2. Refused/Skipped.",
+        "body": "*ITEM 9. FRIENDS (SOCIAL-EMOTIONAL)*\n\n*Please tell me the names of your firends who you like to play with*\n\n📖  _After the child has paused for 5 seconds, prompt ONCE by saying,_\n\n*Are there any other friends who you like to play with?*\n1. Continue.\n2. Refused/Skipped.",
         "timeout": "3600"
       }
     },
@@ -1218,7 +1218,7 @@
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
-        "body": "*a) Now I have some questions about feelings. Think for a moment and tell me what makes you feel sad.*\n\n_Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you sad?* \n\nif child cannot name something that makes them sad, skip to question d) about happiness.\n\n1. Continue.\n2. Skip to question d).",
+        "body": "*a) Now I have some questions about feelings. Think for a moment and tell me what makes you feel sad.*\n\n📖  _Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you sad?* \n\n📖  _If child cannot name something that makes them sad, skip to question d) about happiness._\n\n1. Continue.\n2. Skip to question d).",
         "timeout": "3600"
       }
     },
@@ -1366,7 +1366,7 @@
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
-        "body": "b) Then ask, *What do you do to feel better when you are feeling sad?*\n\n_Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you sad?* \n\nif child cannot name something that makes them sad, skip to question d) about happiness.\n\n1. Continue.\n2. Skip to question d).",
+        "body": "b) Then ask, *What do you do to feel better when you are feeling sad?*\n\n📖  _Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you sad?* \n\n📖   _If child cannot name something that makes them sad, skip to question d) about happiness._\n\n1. Continue.\n2. Skip to question d).",
         "timeout": "3600"
       }
     },
@@ -1466,7 +1466,7 @@
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
-        "body": "d) Finally, ask: *Now tell me what makes you feel happy.*\n\n_Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you happy?* \n\n\n1. Continue.",
+        "body": "d) Finally, ask: *Now tell me what makes you feel happy.*\n\n📖  _Wait for the child to respond and if answer is unclear ask,_ \n\n*How/why does that make you happy?* \n1. Continue.",
         "timeout": "3600"
       }
     },
@@ -1517,7 +1517,7 @@
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
-        "body": "c) Continue and ask, *What else do you do to feel better when you are feeling sad?*\n\n_Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you feel better?* \n\nif child cannot name something that makes them sad, skip to question d) about happiness.\n\n1. Continue.",
+        "body": "c) Continue and ask, *What else do you do to feel better when you are feeling sad?*\n\n📖  _Wait for the child to respond and if answer is unclear ask,_ *How/why does that make you feel better?* \n\n📖  _If child cannot name something that makes them sad, skip to question d) about happiness._\n\n1. Continue.",
         "timeout": "3600"
       }
     },
@@ -1627,7 +1627,7 @@
           "event": "noMatch"
         },
         {
-          "next": "Section11",
+          "next": "q12",
           "event": "match",
           "conditions": [
             {
@@ -1641,7 +1641,7 @@
           ]
         },
         {
-          "next": "Section11",
+          "next": "q12",
           "event": "match",
           "conditions": [
             {
@@ -1716,31 +1716,6 @@
       }
     },
     {
-      "name": "Section11",
-      "type": "send-message",
-      "transitions": [
-        {
-          "next": "q12",
-          "event": "sent"
-        },
-        {
-          "event": "failed"
-        }
-      ],
-      "properties": {
-        "offset": {
-          "x": 100,
-          "y": 7530
-        },
-        "service": "{{trigger.message.InstanceSid}}",
-        "channel": "{{trigger.message.ChannelSid}}",
-        "from": "{{flow.channel.address}}",
-        "to": "{{contact.channel.address}}",
-        "body": "*ITEM 11. EMPATHY / PERSPECTIVE TAKING (SOCIAL-EMOTIONAL)*",
-        "media_url": "https://github.com/3eltran23/whatsapp-chatbot/blob/main/Img/girlC.png?raw=true"
-      }
-    },
-    {
       "name": "q12",
       "type": "send-and-wait-for-reply",
       "transitions": [
@@ -1763,7 +1738,8 @@
         "service": "{{trigger.message.InstanceSid}}",
         "channel": "{{trigger.message.ChannelSid}}",
         "from": "{{flow.channel.address}}",
-        "body": "a) Show the picture card and say, *Now let's look at this picture. How do you think this child is feeling right now?*\n\n_If child cannot identify that the girl is sad, skip questions b and c._\n1. Continue.\n2. Skip questions b and c.",
+        "body": "*ITEM 11. EMPATHY / PERSPECTIVE TAKING (SOCIAL-EMOTIONAL)*\n\n📖   a) Show the picture card and say, \n*Now let's look at this picture. How do you think this child is feeling right now?*\n\n📖   _If child cannot identify that the girl is sad, skip questions b and c._\n1. Continue.\n2. Skip questions b and c.",
+        "media_url": "https://github.com/3eltran23/whatsapp-chatbot/blob/main/Img/girlC.png?raw=true",
         "timeout": "3600"
       }
     },
@@ -1776,6 +1752,7 @@
           "event": "noMatch"
         },
         {
+          "next": "q13",
           "event": "match",
           "conditions": [
             {
@@ -1789,6 +1766,7 @@
           ]
         },
         {
+          "next": "q15",
           "event": "match",
           "conditions": [
             {
@@ -1860,6 +1838,530 @@
         "from": "{{flow.channel.address}}",
         "to": "{{contact.channel.address}}",
         "body": "I'm sorry, I didn't understand. \nPlease enter a number from 1-2."
+      }
+    },
+    {
+      "name": "q13",
+      "type": "send-and-wait-for-reply",
+      "transitions": [
+        {
+          "next": "q13_split",
+          "event": "incomingMessage"
+        },
+        {
+          "event": "timeout"
+        },
+        {
+          "event": "deliveryFailure"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 30,
+          "y": 8300
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "body": "b) Then ask, *What would you do to help her feel better?*\n\n📖  _Wait for the child to respond and if answer is unclear ask_, \n\n*How/why does this make her feel better?*\n\n📖  _If child cannot identify that the girl is sad, skip questions b and c._\n1. Continue.\n2. Skip question c.",
+        "media_url": "",
+        "timeout": "3600"
+      }
+    },
+    {
+      "name": "q13_split",
+      "type": "split-based-on",
+      "transitions": [
+        {
+          "next": "q13_error",
+          "event": "noMatch"
+        },
+        {
+          "next": "q14",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of 1,continue, 2",
+              "arguments": [
+                "{{widgets.q13.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "1,continue"
+            }
+          ]
+        },
+        {
+          "next": "q15",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of skip",
+              "arguments": [
+                "{{widgets.q13.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "2,skip"
+            }
+          ]
+        },
+        {
+          "next": "help_message",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of help",
+              "arguments": [
+                "{{widgets.q13.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "help"
+            }
+          ]
+        },
+        {
+          "next": "exitSurvey",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of stop",
+              "arguments": [
+                "{{widgets.q13.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "stop"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "input": "{{widgets.q13.inbound.Body}}",
+        "offset": {
+          "x": -220,
+          "y": 8540
+        }
+      }
+    },
+    {
+      "name": "IDELA",
+      "type": "send-message",
+      "transitions": [
+        {
+          "next": "q1",
+          "event": "sent"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 340,
+          "y": 1250
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "body": "*ITEM 1 -  SELF-AWARENESS (SOCIAL-EMOTIONAL)*\n\n📖  Ask the child the following question one at the time."
+      }
+    },
+    {
+      "name": "q14",
+      "type": "send-and-wait-for-reply",
+      "transitions": [
+        {
+          "next": "q14_split",
+          "event": "incomingMessage"
+        },
+        {
+          "event": "timeout"
+        },
+        {
+          "event": "deliveryFailure"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 10,
+          "y": 8820
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "body": "c) _Prompt ONCE by asking, *Is there anything else you would do to make her feel better?*\n\n📖  _Wait for the child to respond and if answer is unclear ask_, \n\n*How/why does this make her feel better?*\n1. Continue",
+        "media_url": "",
+        "timeout": "3600"
+      }
+    },
+    {
+      "name": "q13_error",
+      "type": "send-message",
+      "transitions": [
+        {
+          "next": "q13",
+          "event": "sent"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -540,
+          "y": 8340
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "body": "I'm sorry, I didn't understand. \nPlease enter a number from 1-2."
+      }
+    },
+    {
+      "name": "q14_split",
+      "type": "split-based-on",
+      "transitions": [
+        {
+          "next": "q14_error",
+          "event": "noMatch"
+        },
+        {
+          "next": "q15",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of 1,continue, 2",
+              "arguments": [
+                "{{widgets.q14.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "1,continue"
+            }
+          ]
+        },
+        {
+          "next": "q15",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of skip",
+              "arguments": [
+                "{{widgets.q14.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "2,skip"
+            }
+          ]
+        },
+        {
+          "next": "help_message",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of help",
+              "arguments": [
+                "{{widgets.q14.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "help"
+            }
+          ]
+        },
+        {
+          "next": "exitSurvey",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of stop",
+              "arguments": [
+                "{{widgets.q14.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "stop"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "input": "{{widgets.q14.inbound.Body}}",
+        "offset": {
+          "x": -220,
+          "y": 9090
+        }
+      }
+    },
+    {
+      "name": "q15",
+      "type": "send-and-wait-for-reply",
+      "transitions": [
+        {
+          "next": "q15_split",
+          "event": "incomingMessage"
+        },
+        {
+          "event": "timeout"
+        },
+        {
+          "event": "deliveryFailure"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 0,
+          "y": 9380
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "body": "*ITEM 12. SOLVING CONFLICT (SOCIAL-EMOTIONAL)*\n\na) *Now I will ask you to imagine a situation where you are playing with a toy that you like when another child wants to play with the same toy, but there is only one toy. What would you do in this situation?*\n\n📖  _If child cannot identify one solution, skip question b_, \n\n1. Continue\n2. Skip question b",
+        "media_url": "",
+        "timeout": "3600"
+      }
+    },
+    {
+      "name": "q14_error",
+      "type": "send-message",
+      "transitions": [
+        {
+          "next": "q14",
+          "event": "sent"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -460,
+          "y": 8830
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "body": "I'm sorry, I didn't understand. \nPlease enter a number from 1."
+      }
+    },
+    {
+      "name": "q15_split",
+      "type": "split-based-on",
+      "transitions": [
+        {
+          "next": "q15_error",
+          "event": "noMatch"
+        },
+        {
+          "next": "q16",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of 1,continue, 2",
+              "arguments": [
+                "{{widgets.q15.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "1,continue"
+            }
+          ]
+        },
+        {
+          "next": "q16",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of skip",
+              "arguments": [
+                "{{widgets.q15.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "2,skip"
+            }
+          ]
+        },
+        {
+          "next": "help_message",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of help",
+              "arguments": [
+                "{{widgets.q15.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "help"
+            }
+          ]
+        },
+        {
+          "next": "exitSurvey",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of stop",
+              "arguments": [
+                "{{widgets.q15.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "stop"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "input": "{{widgets.q15.inbound.Body}}",
+        "offset": {
+          "x": -240,
+          "y": 9690
+        }
+      }
+    },
+    {
+      "name": "q16",
+      "type": "send-and-wait-for-reply",
+      "transitions": [
+        {
+          "next": "q16_split",
+          "event": "incomingMessage"
+        },
+        {
+          "event": "timeout"
+        },
+        {
+          "event": "deliveryFailure"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -80,
+          "y": 9970
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "body": "b) _Prompt ONCE by asking_, *Is there anything else you would do?*\n\n1. Continue",
+        "media_url": "",
+        "timeout": "3600"
+      }
+    },
+    {
+      "name": "q15_error",
+      "type": "send-message",
+      "transitions": [
+        {
+          "next": "q15",
+          "event": "sent"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -490,
+          "y": 9440
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "body": "I'm sorry, I didn't understand. \nPlease enter a number from 1-2."
+      }
+    },
+    {
+      "name": "q16_split",
+      "type": "split-based-on",
+      "transitions": [
+        {
+          "next": "q16_error",
+          "event": "noMatch"
+        },
+        {
+          "next": "exitSurvey",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of 1,continue, 2",
+              "arguments": [
+                "{{widgets.q16.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "1,continue"
+            }
+          ]
+        },
+        {
+          "next": "exitSurvey",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of skip",
+              "arguments": [
+                "{{widgets.q16.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "2,skip"
+            }
+          ]
+        },
+        {
+          "next": "help_message",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of help",
+              "arguments": [
+                "{{widgets.q16.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "help"
+            }
+          ]
+        },
+        {
+          "next": "exitSurvey",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value matches_any_of stop",
+              "arguments": [
+                "{{widgets.q16.inbound.Body}}"
+              ],
+              "type": "matches_any_of",
+              "value": "stop"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "input": "{{widgets.q16.inbound.Body}}",
+        "offset": {
+          "x": -280,
+          "y": 10270
+        }
+      }
+    },
+    {
+      "name": "q16_error",
+      "type": "send-message",
+      "transitions": [
+        {
+          "next": "q16",
+          "event": "sent"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -520,
+          "y": 9960
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "body": "I'm sorry, I didn't understand. \nPlease enter a number from 1."
       }
     }
   ],
